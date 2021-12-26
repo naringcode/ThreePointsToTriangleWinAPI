@@ -133,7 +133,7 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
             if (0.f < t && t < 1.f && 0.f < s && s < 1.f &&
                 0.f < t + s && t + s < 1.f)
             {
-                SetPixel(hdc, x, y, RGB(255, 0, 0));
+                SetPixel(hdc, x, y, RGB(255 * s, 255 * t, 255 * (1 - (t + s))));
 
                 pixelCnt++;
             }
