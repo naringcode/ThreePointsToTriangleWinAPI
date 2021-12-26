@@ -98,7 +98,7 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
     float wv;
     float wu;
 
-    float divider = (uv * uv) - (uu * vv);
+    float divider = (uv * uv) - (uu * vv); // (uv)^2 - (uu)(uv)
 
     float s;
     float t;
