@@ -23,6 +23,11 @@ void DrawLine(HDC hdc, int x1, int y1, int x2, int y2)
     {
         SetPixel(hdc, point.x, point.y, RGB(255, 0, 0));
     }
+
+    wchar_t str[256];
+    swprintf_s(str, L"Number Of Pixels : %d", points.size());
+
+    TextOut(hdc, 10, 10, str, wcslen(str));
 }
 
 void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
@@ -103,6 +108,8 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
     float s;
     float t;
 
+    int pixelCnt = 0;
+
     // Draw a triangle.
     // -----
     for (int y = minY; y <= maxY; y++)
@@ -127,7 +134,14 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
                 0.f < t + s && t + s < 1.f)
             {
                 SetPixel(hdc, x, y, RGB(255, 0, 0));
+
+                pixelCnt++;
             }
         }
     }
+
+    wchar_t str[256];
+    swprintf_s(str, L"Number Of Pixels : %d", pixelCnt);
+
+    TextOut(hdc, 10, 10, str, wcslen(str));
 }
