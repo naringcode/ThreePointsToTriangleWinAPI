@@ -86,14 +86,14 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
     // -----
     SimpleVec2D u;
     {
-        u.x = x1 - x3;
-        u.y = y1 - y3;
+        u.x = x2 - x3;
+        u.y = y2 - y3;
     }
 
     SimpleVec2D v;
     {
-        v.x = x2 - x3;
-        v.y = y2 - y3;
+        v.x = x1 - x3;
+        v.y = y1 - y3;
     }
 
     float uu = SimpleVec2D::DotProduct(u, u);
@@ -133,7 +133,7 @@ void DrawTriangle(HDC hdc, int x1, int y1, int x2, int y2, int x3, int y3)
             if (0.f < t && t < 1.f && 0.f < s && s < 1.f &&
                 0.f < t + s && t + s < 1.f)
             {
-                SetPixel(hdc, x, y, RGB(255 * s, 255 * t, 255 * (1 - (t + s))));
+                SetPixel(hdc, x, y, RGB(255 * t, 255 * s, 255 * (1 - (t + s))));
 
                 pixelCnt++;
             }
